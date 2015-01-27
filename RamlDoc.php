@@ -166,4 +166,12 @@ class RamlDoc
 
         return $types;
     }
+
+    /**
+     * @see JsonSerializer::jsonSerialize
+     */
+    public function jsonSerialize()
+    {
+        return $this->rawRaml;
+    }
 }

@@ -9,44 +9,46 @@ namespace GoIntegro\Raml\Root;
 
 class MapCollection implements \Countable, \IteratorAggregate
 {
+    const ERROR_DUPLICATE_ITEM
+        = "An item identified by \"%s\" was added twice.";
+
     /**
-     * @var array
+     * @var array The items from all maps merged.
      */
-    private $maps = [];
+    private $items = [];
 
     /**
      * @param array $map
      * @return self
+     * @todo The original map to which each item belonged is lost thus.
      */
     public function add(array $map)
     {
-        $this->maps[] = new Map($map);
+        foreach ($map as $key => $item) {
+            if (empty($this->items[$key])) {
+                $this->items[$key] = $item;
+            } else {
+                throw new \ErrorException(self::ERROR_DUPLICATE_ITEM);
+            }
+        }
     }
 
     /**
-     * @param string $name
+     * @param string $key
      * @return \stdClass|NULL
      */
-    public function has($name)
+    public function has($key)
     {
-        foreach ($this->maps as $map) {
-            if ($map->has($name)) return TRUE;
-        }
-
-        return FALSE;
+        return isset($this->itemss[$key]);
     }
 
     /**
-     * @param string $name
+     * @param string $key
      * @return \stdClass|NULL
      */
-    public function get($name)
+    public function get($key)
     {
-        foreach ($this->maps as $map) {
-            if ($map->has($name)) return $map->get($name);
-        }
-
-        return NULL;
+        return isset($this->itemss[$key]) ? $this->itemss[$key] : NULL;
     }
 
     /**
@@ -54,7 +56,7 @@ class MapCollection implements \Countable, \IteratorAggregate
      */
     public function count()
     {
-        return count($this->maps);
+        return count($this->itemss);
     }
 
     /**
@@ -62,6 +64,6 @@ class MapCollection implements \Countable, \IteratorAggregate
      */
     public function getIterator()
     {
-        return new \ArrayIterator($this->maps);
+        return new \ArrayIterator($this->itemss);
     }
 }

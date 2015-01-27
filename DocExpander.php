@@ -7,6 +7,12 @@
 
 namespace GoIntegro\Raml;
 
+/**
+ * Adds the nodes defined in resource types and traits to the definition.
+ *
+ * This process actually modifies the so-called "raw RAML" property, which
+ * makes it not raw at all after all. The name might need revision.
+ */
 class DocExpander
 {
     const ERROR_UNKNOWN_TRAIT = "The trait \"%s\" is unknown.",
