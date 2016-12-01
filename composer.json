@@ -1,5 +1,5 @@
 {
-    "name": "gointegro/raml",
+    "name": "skqr/raml",
     "description": "GOintegro RAML Lib",
     "keywords": ["RAML", "parser", "navigator", "API"],
     "homepage": "http://www.gointegro.com",
@@ -24,8 +24,8 @@
         "rhumsaa/uuid": "*",
         "symfony/yaml": "*",
 
-        "gointegro/json": "*",
-        "gointegro/inflector": "*"
+        "skqr/json": "*",
+        "skqr/inflector": "*"
     },
     "require-dev": {
         "phpunit/phpunit": "*",
