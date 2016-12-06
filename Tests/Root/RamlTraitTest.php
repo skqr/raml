@@ -19,7 +19,7 @@ class RamlTraitTest extends \PHPUnit_Framework_TestCase
     public function testApplyingSnippet()
     {
         /* Given... (Fixture) */
-        $raml = Yaml::parse(__DIR__ . self::RAML_PATH);
+        $raml = Yaml::parse(file_get_contents(__DIR__ . self::RAML_PATH));
         $node = $raml['/books']['get'];
         $params = [
             'key' => [

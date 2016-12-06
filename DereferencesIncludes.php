@@ -35,7 +35,7 @@ trait DereferencesIncludes
         } elseif ($this->isJsonFile($filePath)) {
             return $this->jsonCoder->decode($filePath, TRUE);
         } elseif ($this->isYamlFile($filePath)) {
-            return Yaml::parse($filePath);
+            return Yaml::parse(file_get_contents($filePath));
         } else {
             throw new \ErrorException(
                 DocNavigator::ERROR_INCLUDED_FILE_TYPE

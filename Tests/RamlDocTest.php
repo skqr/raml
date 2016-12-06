@@ -20,7 +20,7 @@ class RamlDocTest extends \PHPUnit_Framework_TestCase
     {
         /* Given... (Fixture) */
         // Quite justifiable.
-        $rawRaml = Yaml::parse(__DIR__ . self::DEFAULT_SCHEMA_RAML);
+        $rawRaml = Yaml::parse(file_get_contents(__DIR__ . self::DEFAULT_SCHEMA_RAML));
         $ramlDoc = new RamlDoc($rawRaml, self::DEFAULT_SCHEMA_RAML);
         /* When... (Action) */
         $nay = $ramlDoc->isDefined(RamlSpec::HTTP_PUT, '/some-resources');
@@ -38,7 +38,7 @@ class RamlDocTest extends \PHPUnit_Framework_TestCase
     {
         /* Given... (Fixture) */
         // Quite justifiable.
-        $rawRaml = Yaml::parse(__DIR__ . self::DEFAULT_SCHEMA_RAML);
+        $rawRaml = Yaml::parse(file_get_contents(__DIR__ . self::DEFAULT_SCHEMA_RAML));
         $ramlDoc = new RamlDoc($rawRaml, self::DEFAULT_SCHEMA_RAML);
         /* When... (Action) */
         $allowedFiltered = $ramlDoc->getAllowedMethods('/some-resources');
@@ -56,7 +56,7 @@ class RamlDocTest extends \PHPUnit_Framework_TestCase
     {
         /* Given... (Fixture) */
         // Quite justifiable.
-        $rawRaml = Yaml::parse(__DIR__ . self::DEFAULT_SCHEMA_RAML);
+        $rawRaml = Yaml::parse(file_get_contents(__DIR__ . self::DEFAULT_SCHEMA_RAML));
         $ramlDoc = new RamlDoc($rawRaml, self::DEFAULT_SCHEMA_RAML);
         /* When... (Action) */
         $types = $ramlDoc->getResources();

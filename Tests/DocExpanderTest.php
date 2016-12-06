@@ -34,11 +34,12 @@ class DocExpanderTest extends \PHPUnit_Framework_TestCase
         $ramlDoc = Stub::makeEmpty(
             'GoIntegro\\Raml\\RamlDoc',
             [
-                'rawRaml' => Yaml::parse(__DIR__ . self::RAML_PATH),
+                'rawRaml' => Yaml::parse(file_get_contents(__DIR__ . self::RAML_PATH)),
                 'resourceTypes' => $collection,
                 'traits' => $collection
             ]
         );
+        // var_dump($ramlDoc->rawRaml);
         $expander = new DocExpander;
         /* When... (Action) */
         $expander = $expander->expand($ramlDoc);

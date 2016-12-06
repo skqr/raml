@@ -90,12 +90,14 @@ class DocNavigator
                 throw new MalformedSchemaException(self::ERROR_INVALID_SCHEMA);
             }*/
 
-            return $schema;
+            // return $schema;
         } else {
             list($resourceType) = explode('/', substr($resourceUri, 1));
 
-            return $this->ramlDoc->schemas->get($resourceType);
+            $schema = $this->ramlDoc->schemas->get($resourceType);
         }
+
+        return trim($schema);
     }
 
     /**
