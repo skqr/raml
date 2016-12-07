@@ -33,7 +33,7 @@ class DocExpander
      * @see http://raml.org/spec.html#resource-types-and-traits
      */
     private static function applyAllToTree(
-        RamlDoc $ramlDoc, array &$item, $itemKey = NULL
+        RamlDoc $ramlDoc, array $item, $itemKey = NULL
     )
     {
         if (

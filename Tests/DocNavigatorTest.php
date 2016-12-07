@@ -52,7 +52,7 @@ SCHEMA;
         $ramlDoc = Stub::makeEmpty(
             'GoIntegro\\Raml\\RamlDoc',
             [
-                'rawRaml' => Yaml::parse(__DIR__ . self::DEFAULT_SCHEMA_RAML),
+                'rawRaml' => Yaml::parse(file_get_contents(__DIR__ . self::DEFAULT_SCHEMA_RAML)),
                 'schemas' => Stub::makeEmpty(
                     'GoIntegro\\Raml\\Root\\MapCollection'
                 )
@@ -91,7 +91,7 @@ SCHEMA;
         $ramlDoc = Stub::makeEmpty(
             'GoIntegro\\Raml\\RamlDoc',
             [
-                'rawRaml' => Yaml::parse(__DIR__ . self::DEFAULT_SCHEMA_RAML),
+                'rawRaml' => Yaml::parse(file_get_contents(__DIR__ . self::DEFAULT_SCHEMA_RAML)),
                 'schemas' => Stub::makeEmpty(
                     'GoIntegro\\Raml\\Root\\MapCollection',
                     ['get' => self::TEST_SCHEMA]
@@ -118,7 +118,7 @@ SCHEMA;
             'GoIntegro\\Raml\\RamlDoc',
             [
                 'rawRaml' => Yaml::parse(
-                    __DIR__ . self::INLINE_BODY_SCHEMA_RAML
+                    file_get_contents(__DIR__ . self::INLINE_BODY_SCHEMA_RAML)
                 ),
                 'schemas' => Stub::makeEmpty(
                     'GoIntegro\\Raml\\Root\\MapCollection'
