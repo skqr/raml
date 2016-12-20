@@ -97,7 +97,7 @@ class DocNavigator
             $schema = $this->ramlDoc->schemas->get($resourceType);
         }
 
-        return trim($schema);
+        return $schema;
     }
 
     /**
